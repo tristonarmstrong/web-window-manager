@@ -1,6 +1,6 @@
 import { WindowManagerType } from './WindowManager'
 import WindowManagerCache from './WindowManagerCache'
-import _ from 'lodash'
+import {remove, forEachRight, forEach} from 'lodash'
 
 declare global {
   interface Window {
@@ -78,14 +78,14 @@ class WindowManager implements WindowManagerType {
   }
 
   public popThisWindowFromParent = (childWindowName: string) => {
-    this.#children = _.remove(this.#children, kid => kid.name !== childWindowName)
+    this.#children = remove(this.#children, kid => kid.name !== childWindowName)
     this.#windowManagerCache?.removeItemFromCache(childWindowName)
   }
 
   public recursivelyCloseChildren = (id = 0) => {
     if (this.hasChildren) {
       const copy = [...this.#children]
-      _.forEachRight(copy, child => {
+      forEachRight(copy, child => {
         child?.WindowManager?.recursivelyCloseChildren(id + 1)
       })
     }
@@ -102,7 +102,7 @@ class WindowManager implements WindowManagerType {
     this.#win.WindowManager = this
     if (!this.#win.name) this.#win.name = 'main'
     this.#windowManagerCache = new WindowManagerCache(this.#win).init()
-    _.forEach(this.#windowManagerCache.getCache()[this.#win.name], name => this.openWindow({ link: '', name }))
+    forEach(this.#windowManagerCache.getCache()[this.#win.name], name => this.openWindow({ link: '', name }))
     return this
   }
 
@@ -136,7 +136,7 @@ class WindowManager implements WindowManagerType {
    */
   private handleUnload() {
     this.#parent.WindowManager.popThisWindowFromParent(this.#win.name)
-    _.forEach(this.#onUnloadCallbacks, cb => cb())
+    forEach(this.#onUnloadCallbacks, cb => cb())
   }
 }
 
