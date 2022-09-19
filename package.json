@@ -1,4 +1,33 @@
 {
+  "name": "web-window-manager",
+  "version": "1.0.0",
+  "description": "A window manager for maintaining window parent child relationships",
+  "main": "dist/index.js",
+  "author": "Triston Armstrong",
+  "license": "MIT",
+  "homepage": "",
+  "targets": "> 0.25%, not dead",
+  "scripts": {},
+  "standard": {
+    "ignore": [
+      "docs/",
+      "node_modules/",
+      "dist/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "web",
+    "window",
+    "manager",
+    "helper"
+  ],
+  "bugs": {
+    "url": ""
+  },
   "dependencies": {
     "@types/lodash": "^4.14.185",
     "lodash": "^4.17.21"
