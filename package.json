@@ -1,5 +1,5 @@
 {
-  "name": "@tarmstrong95/window-manager",
+  "name": "web-window-manager",
   "version": "1.0.3",
   "description": "A window manager for maintaining window parent child relationships",
   "main": "lib/index.js",
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tarmstrong95/REPO NAME.git"
+    "url": "git+https://github.com/Tarmstrong95/WebWindowManager.git"
   },
   "keywords": [
     "web",
@@ -33,9 +33,9 @@
     "helper"
   ],
   "bugs": {
-    "url": "https://github.com/Tarmstrong95/REPO NAME/issues"
+    "url": "https://github.com/Tarmstrong95/WebWindowManager/issues"
   },
-  "homepage": "https://github.com/Tarmstrong95/REPO NAME#readme",
+  "homepage": "https://github.com/Tarmstrong95/WebWindowManager#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
