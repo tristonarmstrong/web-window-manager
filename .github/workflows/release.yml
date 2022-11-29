@@ -7,16 +7,16 @@ on:
       - 'package.json'
 
 jobs:
-  bump_version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - run: git config --global user.name 'Triston Armstrong'
-      - run: git config --global user.email 'triston95strong@gmail.com'
-      - run: npm version patch -m "chore(release) %s"
-      - run: git push
+  # bump_version:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #     - run: git config --global user.name 'Triston Armstrong'
+  #     - run: git config --global user.email 'triston95strong@gmail.com'
+  #     - run: npm version patch -m "chore(release) %s"
+  #     - run: git push
 
   build:
     needs: bump_version
@@ -29,34 +29,34 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
 
-  pre_release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Github Release
-        uses: 'marvinpinto/action-automatic-releases@latest'
-        with:
-          repo_token: '${{ secrets.GITHUB_TOKEN }}'
-          automatic_release_tag: 'latest'
-          prerelease: false
+  # pre_release:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Create Github Release
+  #       uses: 'marvinpinto/action-automatic-releases@latest'
+  #       with:
+  #         repo_token: '${{ secrets.GITHUB_TOKEN }}'
+  #         automatic_release_tag: 'latest'
+  #         prerelease: false
 
-  publish:
-    needs: pre_release
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 12
-          registry-url: 'https://registry.npmjs.org'
-      - name: Getting Dependencies
-        run: npm ci
-      - name: Publishing to NPM
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_RELEASE_DEP}}
+  # publish:
+  #   needs: pre_release
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     packages: write
+  #     contents: read
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 12
+  #         registry-url: 'https://registry.npmjs.org'
+  #     - name: Getting Dependencies
+  #       run: npm ci
+  #     - name: Publishing to NPM
+  #       run: npm publish
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{secrets.NPM_RELEASE_DEP}}
