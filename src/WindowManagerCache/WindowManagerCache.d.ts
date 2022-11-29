@@ -21,3 +21,7 @@ export interface WindowManagerCacheType {
    */
   init(): this
 }
+
+export interface CacheObject {
+  [key: string]: string[]
+}

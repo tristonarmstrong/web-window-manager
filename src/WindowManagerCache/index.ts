@@ -1,5 +1,5 @@
 import {isEmpty, get} from 'lodash'
-import { WindowManagerCacheType } from './WindowManagerCache'
+import { CacheObject, WindowManagerCacheType } from './WindowManagerCache'
 
 class WindowManagerCache extends Object implements WindowManagerCacheType {
   readonly #dataKey: string
@@ -78,10 +78,6 @@ class WindowManagerCache extends Object implements WindowManagerCacheType {
     const cache: CacheObject = JSON.parse(data)
     return cache
   }
-}
-
-interface CacheObject {
-  [key: string]: string[]
 }
 
 export default WindowManagerCache
