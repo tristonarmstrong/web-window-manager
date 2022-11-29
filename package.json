@@ -1,6 +1,6 @@
 {
   "name": "window-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A window manager for maintaining window parent child relationships",
   "main": "lib/index.js",
   "author": "Triston Armstrong",
@@ -19,7 +19,9 @@
     "@types/lodash": "^4.14.185",
     "lodash": "^4.17.21"
   },
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tarmstrong95/REPO NAME.git"
