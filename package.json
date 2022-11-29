@@ -1,23 +1,28 @@
 {
-  "name": "web-window-manager",
+  "name": "window-manager",
   "version": "1.0.0",
   "description": "A window manager for maintaining window parent child relationships",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "author": "Triston Armstrong",
   "license": "MIT",
-  "homepage": "",
-  "targets": "> 0.25%, not dead",
-  "scripts": {},
-  "standard": {
-    "ignore": [
-      "docs/",
-      "node_modules/",
-      "dist/"
-    ]
+  "scripts": {
+    "start": "tsc --watch",
+    "prepublishOnly": "npm run fix",
+    "publish": "npm run build",
+    "build": "npm run clean && tsc",
+    "fix": "npm run lint; npm run format",
+    "clean": "tsc --build --clean",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
   },
+  "dependencies": {
+    "@types/lodash": "^4.14.185",
+    "lodash": "^4.17.21"
+  },
+  "files": ["lib/**/*"],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/Tarmstrong95/REPO NAME.git"
   },
   "keywords": [
     "web",
@@ -26,10 +31,10 @@
     "helper"
   ],
   "bugs": {
-    "url": ""
+    "url": "https://github.com/Tarmstrong95/REPO NAME/issues"
   },
-  "dependencies": {
-    "@types/lodash": "^4.14.185",
-    "lodash": "^4.17.21"
+  "homepage": "https://github.com/Tarmstrong95/REPO NAME#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
