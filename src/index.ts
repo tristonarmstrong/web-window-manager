@@ -1,6 +1,6 @@
 import { WindowManagerType } from './WindowManager'
 import WindowManagerCache from './WindowManagerCache'
-import {remove, forEachRight, forEach} from 'lodash'
+import { remove, forEachRight, forEach } from 'lodash'
 
 declare global {
   interface Window {
@@ -38,9 +38,9 @@ declare global {
 class WindowManager implements WindowManagerType {
   readonly #win: Window
   readonly #newWindowDetails: Record<string, number>
-  #children: Array<Window>
+  #children: Window[]
   #windowManagerCache?: WindowManagerCache
-  #onUnloadCallbacks: Array<() => void>
+  #onUnloadCallbacks: (() => void)[]
   #parent: Window
 
   constructor(win: Window) {
@@ -102,7 +102,9 @@ class WindowManager implements WindowManagerType {
     this.#win.WindowManager = this
     if (!this.#win.name) this.#win.name = 'main'
     this.#windowManagerCache = new WindowManagerCache(this.#win).init()
-    forEach(this.#windowManagerCache.getCache()[this.#win.name], name => this.openWindow({ link: '', name }))
+    forEach(this.#windowManagerCache.getCache()[this.#win.name], name =>
+      this.openWindow({ link: '', name })
+    )
     return this
   }
 
@@ -119,7 +121,7 @@ class WindowManager implements WindowManagerType {
    */
   private close = () => {
     const p = this.#parent
-    p && p.WindowManager.popThisWindowFromParent(this.#win.name)
+    if (!!p) p.WindowManager.popThisWindowFromParent(this.#win.name)
     this.#win.close()
   }
 
@@ -127,7 +129,9 @@ class WindowManager implements WindowManagerType {
    * Takes a window reference and adds it
    */
   private setChild(child: Window) {
-    this.#children = [...new Set([...this.#children, child])].filter(kid => !kid.closed)
+    this.#children = [...new Set([...this.#children, child])].filter(
+      kid => !kid.closed
+    )
   }
 
   /**

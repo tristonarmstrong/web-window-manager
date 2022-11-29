@@ -1,4 +1,4 @@
-import {isEmpty, get} from 'lodash'
+import { isEmpty, get } from 'lodash'
 import { CacheObject, WindowManagerCacheType } from './WindowManagerCache'
 
 class WindowManagerCache extends Object implements WindowManagerCacheType {
@@ -41,7 +41,9 @@ class WindowManagerCache extends Object implements WindowManagerCacheType {
 
   public init() {
     const cacheData = this.getFromStorage()
-    cacheData ? this.hardSetCache(get(cacheData, this.#win.name, [])) : this.clearCache()
+    cacheData
+      ? this.hardSetCache(get(cacheData, this.#win.name, []))
+      : this.clearCache()
     return this
   }
 
