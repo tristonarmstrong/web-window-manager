@@ -1,5 +1,5 @@
 {
-  "name": "window-manager",
+  "name": "@tarmstrong95/window-manager",
   "version": "1.0.3",
   "description": "A window manager for maintaining window parent child relationships",
   "main": "lib/index.js",
