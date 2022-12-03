@@ -1,8 +1,10 @@
+<!-- PSA SECTION _____________________________ -->
 # PSA
 THIS PACKAGE IS NOT READY FOR USE IN YOUR PROJECTS
 
 <br/>
 
+<!-- TODO SECTION _____________________________ -->
 # TODO
 - [x] Add appropriate readme boilerplate
 - [ ] Add complete readme details
@@ -11,19 +13,27 @@ THIS PACKAGE IS NOT READY FOR USE IN YOUR PROJECTS
 
 <br/>
 
+<!-- MAIN SECTION INTRO _____________________________ -->
 # Web-Window-Manager
 
-TODO: put descriptino here
+A Window Manger for managing the creation and deletion of windows/tabs within a web based application.
 
-### Badges
 
-[![current version](https://img.shields.io/npm/v/storybook-addon-next.svg)](https://www.npmjs.com/package/storybook-addon-next)
+<br/>
 
-TODO: add release detials here
+<!-- BADGES SECTION _____________________________ -->
+## Badges
+
+[![npm version](https://img.shields.io/npm/v/npm.svg)](https://npm.im/npm)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://github.com/Tarmstrong95/component-test-helper/actions/workflows/release-package.yml/badge.svg)](https://github.com/Tarmstrong95/component-test-helper/actions/workflows/release-package.yml)
 
 <div id="top"></div>
 
-### Externals
+<br/>
+
+<!-- EXTERNALS SECTION _____________________________ -->
+## Externals
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -32,10 +42,10 @@ TODO: add release detials here
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- PROJECT LOGO -->
 <br />
 
-<!-- TABLE OF CONTENTS -->
+<!-- TABLE OF CONTENTS SECTION _____________________________ -->
+## Table Of Contents
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -63,26 +73,32 @@ TODO: add release detials here
 
 <br/>
 
-<!-- ABOUT THE PROJECT -->
 
+<!-- ABOUT SECTION _____________________________ -->
 ## About The Project
 
-TODO: put about the project here
+This package allows develepors to build applications that can open windows/tabs at an infinite depth (theoretically) and close all windows/tabs, based on some "event", that are "children" of the window/tab that triggered the event. This solves the problem some web applications have with persistance and ensuring all children are closed given various edge cases.
+
+- EVENT - button click, hot key, or anything else (fully customizable)
+- CHILDREN - a window/tab that was opened by a given window/tab
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- BUILT WITH SECTION _____________________________ -->
 ### Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
+- [Lodash](https://lodash.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
 
+<!-- GETTING STARTED SECTION _____________________________ -->
 ## Getting Started
 
 To get the package included in your project, follow these steps
 
+<!-- INSTALLATION SECTION _____________________________ -->
 ### Installation
 
 using [npm](https://www.npmjs.com/):
@@ -93,9 +109,9 @@ npm i web-window-manager
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- USAGE EXAMPLES -->
 
-## Usage
+<!-- USAGE SECTION _____________________________ -->
+### Usage
 
 TODO: Add how to use this package
 
@@ -108,8 +124,8 @@ _Check out the [examples](https://github.com/Tarmstrong95/WindowManger/tree/main
 
 See the [open issues](https://github.com/Tarmstrong95/WebWindowManager/issues) for a full list of proposed features (and known issues).
 
-<!-- CONTRIBUTING -->
 
+<!-- CONTRIBUTING SECTION _____________________________ -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -125,16 +141,15 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- LICENSE -->
-
+<!-- LICENSE SECTION _____________________________ -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- CONTACT -->
 
+<!-- CONTACT SECTION _____________________________ -->
 ## Contact
 
 Me - [@Triston08227721](https://twitter.com/Triston08227721) - triston95strong@gmail.com
