@@ -1,27 +1,29 @@
 <!-- PSA SECTION _____________________________ -->
+
 # PSA
+
 THIS PACKAGE IS NOT READY FOR USE IN YOUR PROJECTS
 
-<br/>
 
 <!-- TODO SECTION _____________________________ -->
+
 # TODO
+
 - [x] Add appropriate readme boilerplate
 - [ ] Add complete readme details
 - [ ] Add examples
 - [ ] abstract cache manager to new npm package
 
-<br/>
 
 <!-- MAIN SECTION INTRO _____________________________ -->
+
 # Web-Window-Manager
 
 A Window Manger for managing the creation and deletion of windows/tabs within a web based application.
 
 
-<br/>
-
 <!-- BADGES SECTION _____________________________ -->
+
 ## Badges
 
 [![npm version](https://img.shields.io/npm/v/npm.svg)](https://npm.im/npm)
@@ -30,22 +32,12 @@ A Window Manger for managing the creation and deletion of windows/tabs within a 
 
 <div id="top"></div>
 
-<br/>
-
-<!-- EXTERNALS SECTION _____________________________ -->
-## Externals
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-<br />
+<hr/>
 
 <!-- TABLE OF CONTENTS SECTION _____________________________ -->
+
 ## Table Of Contents
+
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -71,84 +63,124 @@ A Window Manger for managing the creation and deletion of windows/tabs within a 
   </ol>
 </details>
 
-<br/>
-
+<hr/>
 
 <!-- ABOUT SECTION _____________________________ -->
+
 ## About The Project
 
-This package allows develepors to build applications that can open windows/tabs at an infinite depth (theoretically) and close all windows/tabs, based on some "event", that are "children" of the window/tab that triggered the event. This solves the problem some web applications have with persistance and ensuring all children are closed given various edge cases.
+This package allows developers to build applications that can open windows/tabs at an infinite depth (theoretically) and close all windows/tabs, based on some "event", that are "children" of the window/tab that triggered the event. This solves the problem some web applications have with persistence and ensuring all children are closed given various edge cases.
 
-- EVENT - button click, hot key, or anything else (fully customizable)
-- CHILDREN - a window/tab that was opened by a given window/tab
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+- EVENT: a button click, hot key, or anything else (fully customizable)
+- CHILDREN: a window/tab that was opened by a given window/tab
 
 <!-- BUILT WITH SECTION _____________________________ -->
+
 ### Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Lodash](https://lodash.com/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 <!-- GETTING STARTED SECTION _____________________________ -->
+
+<hr/>
+
 ## Getting Started
 
-To get the package included in your project, follow these steps
+To get started with the `Web-Window-Manager`, you will need to have the following prerequisites installed:
 
-<!-- INSTALLATION SECTION _____________________________ -->
-### Installation
+- Node.js
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-using [npm](https://www.npmjs.com/):
+Once you have these prerequisites installed, you can proceed to install the Web-Window-Manager package using npm:
 
 ```bash
 npm i web-window-manager
 ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+After installing the package, you can import and use it in your project as shown in the Usage section above.
 
+<hr/>
 
 <!-- USAGE SECTION _____________________________ -->
-### Usage
 
-TODO: Add how to use this package
+## Usage
+Import the Web-Window-Manager file into your entry file (e.g. app.tsx in a React project):
+   
+
+```typescript
+import 'web-window-manager';
+```
+
+Replace any window.open() calls in your code with window.windowManager.open():
+```typescript
+// Before
+window.open('https://www.example.com', '_blank');
+
+// After
+window.windowManager.open('https://www.example.com', '_blank');
+```
+
+This will use the Web-Window-Manager to open the new window/tab, allowing you to track and manage it within your application.
+
+Add a simple React button with an onClick prop that calls window.windowManager.recursivelyCloseChildren() with a label of "Logout":
+
+```javascript
+import 'web-window-manager';
+
+// Initialize the window manager with a custom event
+const windowManager = new WebWindowManager('custom-event');
+
+function App() {
+  return (
+    <button onClick={() => window.windowManager.recursivelyCloseChildren()}>
+      Logout
+    </button>
+  );
+}
+
+```
+
+When the user clicks the "Logout" button, this will close all child windows/tabs that were opened by the current window/tab.
+
+For more detailed usage instructions and examples, please see the `Web-Window-Manager` documentation [examples](https://github.com/Tarmstrong95/WindowManger/tree/main/src/examples).
 
 
-_Check out the [examples](https://github.com/Tarmstrong95/WindowManger/tree/main/src/examples) folder for more details_
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+_See the [open issues](https://github.com/Tarmstrong95/WebWindowManager/issues) for a full list of proposed features (and known issues)._
 
-<hr>
+<hr/>
 
-See the [open issues](https://github.com/Tarmstrong95/WebWindowManager/issues) for a full list of proposed features (and known issues).
+<!-- ROADMAP SECTION _____________________________ -->
 
+## Roadmap
+
+1. The Web-Window-Manager package is still in development, and the following features are planned for future releases:
+
+1. Abstract the cache manager to a separate npm package
+   Add more detailed examples and usage instructions in the readme
+
+<hr/>
 
 <!-- CONTRIBUTING SECTION _____________________________ -->
+
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+If you would like to contribute to the development of the Web-Window-Manager package, please follow these steps:
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+1. Fork the repository
+2. Create a new branch for your changes (e.g. feature/new-feature)
+3. Make your changes and commit them to your branch
+4. Push your branch to your forked repository
+5. Open a new pull request from your branch to the master branch of the original repository
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+<hr/>
 <!-- LICENSE SECTION _____________________________ -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+<hr/>
 <!-- CONTACT SECTION _____________________________ -->
 ## Contact
 
@@ -156,7 +188,12 @@ Me - [@Triston08227721](https://twitter.com/Triston08227721) - triston95strong@g
 
 Project Link: [https://github.com/Tarmstrong95/WebWindowManager](https://github.com/Tarmstrong95/WebWindowManager)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- MARKDOWN LINKS & IMAGES -->
+
+### Acknowledgments
+
+- [Shields.io](https://shields.io/) for providing the badges used in the readme.
+- [Lodash](https://lodash.com/) for providing the utility functions used in the package.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
