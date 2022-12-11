@@ -1,6 +1,6 @@
 {
   "name": "web-window-manager",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A window manager for maintaining window parent child relationships",
   "main": "lib/index.js",
   "author": "Triston Armstrong",
