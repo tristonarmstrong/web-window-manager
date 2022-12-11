@@ -4,7 +4,7 @@
 
 - [x] Add appropriate readme boilerplate
 - [x] Add complete readme details
-- [ ] Add examples
+- [x] Add examples
 - [ ] abstract cache manager to new npm package
 
 <!-- MAIN SECTION INTRO _____________________________ -->
