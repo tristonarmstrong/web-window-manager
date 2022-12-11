@@ -56,7 +56,10 @@ class WindowManager implements WindowManagerType {
     }
   }
 
-  public openWindow = ({ link, name }: { link: string; name?: string }) => {
+  public openWindow = (windowProperties: { link: string; name?: string }) => {
+    const {link, name} = windowProperties
+    if (typeof link !== 'string' ) throw new TypeError(`WindowManager.openWindow requires link to be given as a String`)
+    if (!['undefined','string'].includes(typeof name)) throw new TypeError(`WindowManager.openWindow requires name to be given as String or undefined`)
     const childWindow = this.#win.open(
       link,
       name || link,
@@ -78,11 +81,13 @@ class WindowManager implements WindowManagerType {
   }
 
   public popThisWindowFromParent = (childWindowName: string) => {
+    if (typeof childWindowName !== 'string') throw new TypeError('WindowManager.popThisWindowFromParent requires childWindowName to be given as a string')
     this.#children = remove(this.#children, kid => kid.name !== childWindowName)
     this.#windowManagerCache?.removeItemFromCache(childWindowName)
   }
 
   public recursivelyCloseChildren = (id = 0) => {
+    if (typeof id !== 'number') throw new TypeError('WindowManager.recursivelyCloseChildren requires id to be given as a number')
     if (this.hasChildren) {
       const copy = [...this.#children]
       forEachRight(copy, child => {
@@ -94,6 +99,7 @@ class WindowManager implements WindowManagerType {
   }
 
   public newUnloadCallback(cb: () => void) {
+    if (typeof cb !== 'function') throw new TypeError('Windowmanager.newUnloadCallback requires cb to be given as a function')
     this.#onUnloadCallbacks.push(cb)
   }
 
@@ -129,6 +135,7 @@ class WindowManager implements WindowManagerType {
    * Takes a window reference and adds it
    */
   private setChild(child: Window) {
+    if (typeof child !== 'object' || !child) throw new TypeError('WindowManager.setChild requires child to be a Window object')
     this.#children = [...new Set([...this.#children, child])].filter(
       kid => !kid.closed
     )
