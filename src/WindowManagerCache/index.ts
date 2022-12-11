@@ -24,14 +24,20 @@ class WindowManagerCache extends Object implements WindowManagerCacheType {
   }
 
   public removeItemFromCache(item: string) {
-    if (typeof item !== 'string') throw new TypeError('WindowManagerCache.removeItemFromCache() item must be a string')
+    if (typeof item !== 'string')
+      throw new TypeError(
+        'WindowManagerCache.removeItemFromCache() item must be a string'
+      )
     const cache = this.getCache()
     if (isEmpty(cache)) return
     this.hardSetCache(cache[this.#win.name].filter(name => item !== name))
   }
-  
+
   public addItemToCache(item: string) {
-    if (typeof item !== 'string') throw new TypeError('WindowManagerCache.addItemFromCache() item must be a string')
+    if (typeof item !== 'string')
+      throw new TypeError(
+        'WindowManagerCache.addItemFromCache() item must be a string'
+      )
     const cache = this.getCache()
     const temp = cache[this.#win.name]
     cache[this.#win.name] = [...temp, item]
@@ -54,23 +60,29 @@ class WindowManagerCache extends Object implements WindowManagerCacheType {
    * @param data an array of window names
    */
   private hardSetCache(data: string[]) {
-    if (typeof data !== 'object') throw new TypeError('WindowManagerCache.hardSetCache() data must be an array of string')
+    if (typeof data !== 'object')
+      throw new TypeError(
+        'WindowManagerCache.hardSetCache() data must be an array of string'
+      )
     this.#cache[this.#win.name] = data
   }
-  
+
   /**
    * sets the cache to an empty array
    */
   private clearCache() {
     this.hardSetCache([])
   }
-  
+
   /**
    * Adds a CacheObject to session storage for window name persistance
    * @param data the CacheObject to update the browser cache to
    */
   private updateStorage(data: CacheObject) {
-    if (typeof data !== 'object') throw new TypeError('WindowManagerCache.updateStorage() data must be an object')
+    if (typeof data !== 'object')
+      throw new TypeError(
+        'WindowManagerCache.updateStorage() data must be an object'
+      )
     sessionStorage.setItem(this.#dataKey, JSON.stringify(data))
   }
 

@@ -1,9 +1,3 @@
-<!-- PSA SECTION _____________________________ -->
-
-# PSA
-
-THIS PACKAGE IS NOT READY FOR USE IN YOUR PROJECTS
-
 <!-- TODO SECTION _____________________________ -->
 
 # TODO
