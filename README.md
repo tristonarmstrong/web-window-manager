@@ -4,23 +4,24 @@
 
 THIS PACKAGE IS NOT READY FOR USE IN YOUR PROJECTS
 
-
 <!-- TODO SECTION _____________________________ -->
 
 # TODO
 
 - [x] Add appropriate readme boilerplate
-- [ ] Add complete readme details
+- [x] Add complete readme details
 - [ ] Add examples
 - [ ] abstract cache manager to new npm package
-
 
 <!-- MAIN SECTION INTRO _____________________________ -->
 
 # Web-Window-Manager
 
-A Window Manger for managing the creation and deletion of windows/tabs within a web based application.
+<a href="https://www.loom.com/share/641344bac18a415f90c983d9a3c2352a">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/641344bac18a415f90c983d9a3c2352a-with-play.gif">
+  </a>
 
+A Window Manger for managing the creation and deletion of windows/tabs within a web based application.
 
 <!-- BADGES SECTION _____________________________ -->
 
@@ -105,47 +106,44 @@ After installing the package, you can import and use it in your project as shown
 <!-- USAGE SECTION _____________________________ -->
 
 ## Usage
+
 Import the Web-Window-Manager file into your entry file (e.g. app.tsx in a React project):
-   
 
 ```typescript
-import 'web-window-manager';
+import 'web-window-manager'
 ```
 
 Replace any window.open() calls in your code with window.windowManager.open():
+
 ```typescript
 // Before
-window.open('https://www.example.com', '_blank');
+window.open('https://www.example.com', '_blank')
 
 // After
-window.windowManager.open('https://www.example.com', '_blank');
+window.WindowManager.openWindow({ link: '/some-link', name: `some-name` })
 ```
 
 This will use the Web-Window-Manager to open the new window/tab, allowing you to track and manage it within your application.
 
-Add a simple React button with an onClick prop that calls window.windowManager.recursivelyCloseChildren() with a label of "Logout":
+Add a simple React button with an `onClick` prop that calls `window.windowManager.recursivelyCloseChildren()` with a label of `"Logout"`:
 
 ```javascript
-import 'web-window-manager';
-
-// Initialize the window manager with a custom event
-const windowManager = new WebWindowManager('custom-event');
+import 'web-window-manager'
 
 function App() {
   return (
+    // NOTE: you must call it from an arrow function in this context because
+    // this function expects a number parameter or undefined
     <button onClick={() => window.windowManager.recursivelyCloseChildren()}>
       Logout
     </button>
-  );
+  )
 }
-
 ```
 
 When the user clicks the "Logout" button, this will close all child windows/tabs that were opened by the current window/tab.
 
 For more detailed usage instructions and examples, please see the `Web-Window-Manager` documentation [examples](https://github.com/Tarmstrong95/WindowManger/tree/main/src/examples).
-
-
 
 _See the [open issues](https://github.com/Tarmstrong95/WebWindowManager/issues) for a full list of proposed features (and known issues)._
 
@@ -155,10 +153,11 @@ _See the [open issues](https://github.com/Tarmstrong95/WebWindowManager/issues) 
 
 ## Roadmap
 
-1. The Web-Window-Manager package is still in development, and the following features are planned for future releases:
+- The Web-Window-Manager package is still in development, and the following features are planned for future releases:
 
-1. Abstract the cache manager to a separate npm package
-   Add more detailed examples and usage instructions in the readme
+  - Abstract the cache manager to a separate npm package
+  - Add more detailed examples
+  - usage instructions in the readme
 
 <hr/>
 
