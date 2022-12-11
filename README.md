@@ -158,6 +158,7 @@ _See the [open issues](https://github.com/Tarmstrong95/WebWindowManager/issues) 
   - Abstract the cache manager to a separate npm package
   - Add more detailed examples
   - usage instructions in the readme
+  - make window details customizable
 
 <hr/>
 
