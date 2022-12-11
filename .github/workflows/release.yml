@@ -44,10 +44,12 @@ jobs:
     needs: pre_release
     runs-on: ubuntu-latest
     steps:
-      - name: Setup npm
-        uses: actions/npm@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          registry-auth: ${{secrets.NPM_RELEASE_DEP}}
+          node-version: 12
           registry-url: 'https://registry.npmjs.org'
       - name: Publishing to NPM
         run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_RELEASE_DEP}}
